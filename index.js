@@ -38,45 +38,64 @@ const style = document.createElement("style");
       .form-section { background:#fff3e0; padding:30px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
 
       @keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-      /* ===== Media Queries ===== */
-@media (max-width: 1024px) {
-  nav { flex-direction: row; gap:3px; padding: 15px 2px; }
-  .search-bar input { width: 80%; }
-  .grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-  .hero h1 { font-size: 28px; }
-}
-
+      /* ----- Mobile / Small Screen (max 768px) ----- */
 @media (max-width: 768px) {
-  header { flex-direction: column; text-align: center; gap: 10px; }
-  nav { justify-content: center; }
-  .search-bar input { width: 90%; }
-  .hero h1 { font-size: 24px; }
-  .hero p { font-size: 14px; }
-  .card { padding: 15px; }
-}
+  header h2 { font-size: 20px; }
+  header p { font-size: 12px; }
 
-@media (max-width: 480px) {
-  nav { gap: 2px; padding:2px; }
-  .hero { padding: 40px 15px; }
-  .hero h1 { font-size: 20px; }
-  .hero p { font-size: 12px; }
-  .grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
-  .card img {  border-radius:12px; height:120px; }
-  
-  .search-bar {
-    flex-direction: column;
-    gap: 20px;
+  nav {
+    flex-wrap: wrap;               
+    justify-content: center;       
+    gap: 20px;                     
+    padding: 10px 20px;
   }
-  .search-bar input { width: 30%; font-size: 14px; }
-  .search-bar button { padding: 8px 15px; font-size: 14px; }
+  nav button {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
 
-  
-  
+  .hero h1 { font-size: 28px; }
+  .page { padding: 20px; }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    gap: 15px;
+  }
+  .card img { height: 140px; }
+
+  .search-bar input {
+    width: 80%;                    
+    min-width: 200px;
+  }
+  .search-bar button {
+    width: auto;
+    padding: 8px 16px;
+  }
+
+  .form-container {
+    width: 90%;                    
+    gap: 12px;
+  }
   .form-container input,
   .form-container textarea,
-  .form-container select,
-  .form-container button { font-size: 14px; padding: 10px; }
+  .form-container select {
+    font-size: 14px;
+  }
+  footer {
+    padding: 20px;
+  }
 }
+
+/* ----- Very Small Screens (max 480px) ----- */
+@media (max-width: 480px) {
+  header { flex-direction: column; text-align: center; gap: 5px; }
+  nav { gap: 10px; padding: 8px 10px; }
+  nav button { font-size: 12px; padding: 5px 8px; }
+
+  .hero h1 { font-size: 22px; }
+  .grid { grid-template-columns: 1fr; } /* Single column cards */
+  .card img { height: 120px; }
+}
+
 
     `;
     document.head.appendChild(style);
